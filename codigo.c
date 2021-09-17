@@ -1,15 +1,16 @@
-//BOTA O CODIGO AQUI IRMÃO ! 
-
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 int menu();
 void cadastro();
+void testeEmail();
 
 char nome[1000][1000], email[100][100], sexo[20][100], endereco[100][100];
 int intMenu;
 double altura[1000];
-int contadorUsuario = 0; 
+int contadorUsuario = 0;
+bool vacina[1000]; 
 
 int main(){
 
@@ -17,7 +18,7 @@ int main(){
 
         switch (menu()) {
 
-        case 1: fflush (stdin); cadastro(); break;
+        case 1: cadastro(); break;
         case 2: printf("\nEditar usuário"); break;
         case 3: printf("\nExcluir usuário: "); break;
         case 4: printf("\nBuscar usuário: "); break;
@@ -56,18 +57,53 @@ void cadastro() {
     printf("Digite seu sexo: ");
     fgets(sexo[contadorUsuario], 100, stdin);
 
-    printf("Digite seu email: ");
-    fgets(email[contadorUsuario], 100, stdin);
+    testeEmail();
 
     printf("Digite seu endereço: ");
     fgets(endereco[contadorUsuario], 100, stdin);
-
+  
     printf("Digite sua altura: ");
     scanf("%lf", &altura[contadorUsuario]);
 
-// printf("tomou a vacina ?");
-// fgets(nome[contadorUsuario], 100, stdin);
+    printf("Tomou a vacina ? (Sim = 1 / Não = 0): ");
+    scanf("%d", &vacina[contadorUsuario]);
+
+    for (int i = 0; i <= contadorUsuario; i++) {
+
+        printf("%d", vacina[contadorUsuario]);
+
+    }
 
     contadorUsuario++;
+
+}
+
+void testeEmail() {
+
+    bool teste;
+
+    do {
+
+        printf("Digite seu email: ");
+        fgets(email[contadorUsuario], 100, stdin);
+
+        for (int i = 0; i <= 100; i++) {
+
+            if(email[contadorUsuario][i] == '@') {
+
+                teste = 1;
+
+            }
+            
+           /* else {
+
+                teste = 0;
+                printf(" Digite seu email com @ ");
+
+            } */ 
+
+        }   
+
+    } while(teste != 1);
 
 }
