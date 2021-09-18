@@ -98,7 +98,7 @@ void testeEmail() {
            /* else {
 
                 teste = 0;
-                printf(" Digite seu email com @ ");
+                printf(" Digite seu email com @ PINTO");
 
             } */ 
 
